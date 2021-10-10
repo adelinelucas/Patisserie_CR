@@ -8,8 +8,12 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
 
+import './styles/css/styles.css';
+
 // You can specify wich plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';
+
+import'./js/scripts';
 
 // start the Stimulus application
 import './bootstrap';
