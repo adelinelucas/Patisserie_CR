@@ -9,7 +9,7 @@
 import './styles/app.scss';
 
 import './styles/css/styles.css';
-
+import './styles/css/authStyle.css';
 // You can specify wich plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';
 
