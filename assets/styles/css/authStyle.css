@@ -1,0 +1,18 @@
+#pageAuthentification{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top:0;
+    padding-bottom: 0;
+}
+
+.login1 img{
+    width: 60vw;
+}
+.login2{
+    display: flex;
+    width: 30vw;
+    align-content: center;
+    padding-top:50vh;
+    padding-left: 2rem;
+}
