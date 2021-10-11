@@ -19,6 +19,19 @@ class PatisserieRepository extends ServiceEntityRepository
         parent::__construct($registry, Patisserie::class);
     }
 
+    /**
+     * @return Patisserie[] Returns an array of Patisserie objects
+    */
+    public function lastFive()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Patisserie[] Returns an array of Patisserie objects
     //  */
