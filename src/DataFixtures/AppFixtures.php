@@ -27,7 +27,7 @@ class AppFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
         // Création d'un utilisateur
-        $user = New User();
+        $user = new User();
         
         $user->setEmail('user@test.com')
             ->setPrenom($faker->firstName())
@@ -43,7 +43,7 @@ class AppFixtures extends Fixture
         $manager->persist($user);
 
         // Création de 10 Blogposts
-        for ($i=0; $i < 10; $i++){
+        for ($i=0; $i < 10; $i++) {
             $blogpost = new Blogpost();
 
             $blogpost->setTitre($faker->words(3, true))
@@ -53,12 +53,11 @@ class AppFixtures extends Fixture
                 ->setUser($user);
 
             $manager->persist($blogpost);
-        
         }
 
         // Creation de 5 catégorie
 
-        for ($k=0; $k<5; $k++){
+        for ($k=0; $k<5; $k++) {
             $categorie = new Categorie();
 
             $categorie->setNom($faker->word())
@@ -69,7 +68,7 @@ class AppFixtures extends Fixture
         
 
             // Création de 2 patisseries/catégorie
-            for($j=0; $j<2; $j++){
+            for ($j=0; $j<2; $j++) {
                 $patisserie = new Patisserie();
 
                 $patisserie->setNom(($faker->words(3, true)))
