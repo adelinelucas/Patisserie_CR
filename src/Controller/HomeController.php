@@ -13,7 +13,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(PatisserieRepository $patisserieRepository,BlogpostRepository $blogpostRepository ): Response
+    public function index(PatisserieRepository $patisserieRepository, BlogpostRepository $blogpostRepository): Response
     {
         return $this->render('home/index.html.twig', [
             'patisseries' => $patisserieRepository->lastFive(),
