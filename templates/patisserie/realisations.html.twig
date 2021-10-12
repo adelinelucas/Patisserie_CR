@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Patisserie Claire et Romain - Realisations{% endblock %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <div class="col-md-4 mt-4">
+
+        {% for patisserie in patisseries %}
+            <div class="card profile-card-5">
+                <div class="card-img-block">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPcxM1G69ZMd9PHlfdjl0Tapo_9LvlpyKRalYrP9OYPrxwwTKKhRTZkCt3TWBtLlsYbyE&usqp=CAU" alt="{{ patisserie.nom }} de la Patisserie Claire et Romain">
+                </div>
+                {# <div class="card-body pt-0">
+                    <h5 class="card-title">{{ patisserie.nom }}</h5>
+                    <p class="card-text">{{ patisserie.description|u.truncate(200,'...', false) }}</p>      
+                </div> #}
+            </div> 
+        {% endfor %}
+
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        {% do patisseries.setPageRange(2) %}
+        {{ knp_pagination_render(patisseries, 'base/pagination.html.twig') }}
+    </div>
+</section>
+{% endblock %}
