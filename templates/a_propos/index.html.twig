@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Qui sommes nous !{% endblock %}
+
+{% block body %}
+<section>
+    <div>
+        <div>
+            <h2>{{ patissier.prenom }} {{ patissier.nom }}</h2>
+        </div>
+        <div>
+            <p>{{ patissier.aPropos}}</p>
+    </div>
+    <div>
+        <img src="/img/logo.jpg" alt="Les dirigeants de la Patisserie Claire et Romain">
+    </div>
+</section>
+{% endblock %}
