@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Présentation des desserts{% endblock %}
+
+{% block body %}
+<section>
+    <div class="container">
+        {% set img = categorie.patisseries|first %}
+        <div>
+            <div>
+                <h1>{{ categorie.nom }}</h1>
+            </div>
+            <div>
+                <p>{{ categorie.description }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-4 mt-4">
+
+        {% for patisserie in patisseries %}
+            <div class="card profile-card-5">
+                <div class="card-img-block">
+                    <img class="card-img-top" src="{{patisserie.file}}" alt="{{ patisserie.nom }} Patisserie Claire et Romain">
+                </div>
+                <div class="card-body pt-0">
+                    <h5 class="card-title">{{ patisserie.nom }}</h5>
+                    <p class="card-text">{{ patisserie.collection }}</p>
+                    <p class="card-text">{{ patisserie.description|u.truncate(200,'...', false) }}</p>      
+                </div>
+            </div> 
+        {% endfor %}
+
+        </div>
+    </div>
+</section>
+{% endblock %}
