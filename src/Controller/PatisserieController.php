@@ -18,7 +18,7 @@ class PatisserieController extends AbstractController
         Request $request,
         PatisserieRepository $patisserieRepository,
         PaginatorInterface $paginator
-    ): Response{
+    ): Response {
         $data = $patisserieRepository->findAll();
 
         $patisseries = $paginator->paginate(

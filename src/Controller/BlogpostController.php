@@ -18,8 +18,7 @@ class BlogpostController extends AbstractController
         Request $request,
         BlogpostRepository $blogpostRepository,
         PaginatorInterface $paginator
-    ): Response
-    {
+    ): Response {
         $data = $blogpostRepository->findAll();
 
         $actualites = $paginator->paginate(
