@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Categorie;
 use App\Entity\Patisserie;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Patisserie|null find($id, $lockMode = null, $lockVersion = null)
@@ -32,22 +33,19 @@ class PatisserieRepository extends ServiceEntityRepository
         ;
     }
 
-    // /**
-    //  * @return Patisserie[] Returns an array of Patisserie objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return Patisserie[] Returns an array of Patisserie objects
+    */
+    public function findAllPortfolio(Categorie $categorie): array
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->where(':categorie MEMBER OF p.categorie')
+            ->andWhere('p.portfolio = TRUE')
+            ->setParameter('categorie', $categorie)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Patisserie

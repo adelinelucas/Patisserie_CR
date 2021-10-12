@@ -10,8 +10,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                <li class="nav-item"><a class="nav-link me-lg-3" href="{{path('realisations')}}">Viennoiserie</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="{{path('realisations')}}">Patisseries</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle">Nos produits
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% for categorie in categorieNavbar() %}
+                        <li class="dropdown-item dropend">
+                            <a href="{{ path('portfolio_categorie', {'slug' : categorie.slug}) }}">{{ categorie.nom }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link me-lg-3" href="{{path('realisations')}}">Nos mets salés</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="{{path('realisations')}}">Evènements</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="{{path('actualites')}}">Les patisseries du moment</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="{{path('realisations')}}">Galerie gourmande</a></li>
