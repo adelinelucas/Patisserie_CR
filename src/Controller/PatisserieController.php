@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Patisserie;
 use App\Repository\PatisserieRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,4 +32,14 @@ class PatisserieController extends AbstractController
             'patisseries' => $patisseries,
         ]);
     }
+    
+    /**
+     * @Route("/realisations/{slug}", name="realisations_details")
+     */
+    public function details(Patisserie $patisserie): Response
+    {
+        return $this->render('patisserie/details.html.twig', [
+            'patisserie' => $patisserie
+        ]);
+    }                                   
 }
