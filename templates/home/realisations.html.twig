@@ -6,9 +6,11 @@
         {% for patisserie in patisseries %}
             <div class="card profile-card-5">
                 <div class="card-img-block">
+                    <a class="class-img-top" href="{{ path('realisations_details', {'slug': patisserie.slug}) }}">
                     <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPcxM1G69ZMd9PHlfdjl0Tapo_9LvlpyKRalYrP9OYPrxwwTKKhRTZkCt3TWBtLlsYbyE&usqp=CAU" alt="{{ patisserie.nom }} de la Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
+                    <a class="class-img-top" href="{{ path('realisations_details', {'slug': patisserie.slug}) }}">
                     <h5 class="card-title">{{ patisserie.nom }}</h5>
                     <p class="card-text">{{ patisserie.description|u.truncate(200,'...', false) }}</p>      
                 </div>
