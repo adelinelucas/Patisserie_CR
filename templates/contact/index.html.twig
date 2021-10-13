@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous !{% endblock %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <div class="col-md-10 mt-4">
+            {{ form_start(form) }}
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message}}
+                    </div>
+                {% endfor %}
+
+                <div class="my-custom-class-for-errors">
+                    {{ form_errors(form) }}
+                </div>
+
+                 <div class="form-group col-6 pl-0" >
+                    <label class="form-label" for="contactName">
+                        {{ form_label(form.nom) }}
+                    </label>
+                        {{ form_widget(form.nom) }}
+                </div>
+
+                <div class="form-group col-6 pl-0" >
+                    <label class="form-label" for="contactPrenom">
+                        {{ form_label(form.prenom) }}
+                    </label>
+                        {{ form_widget(form.prenom) }}
+                </div>
+
+                <div class="form-group col-6 pl-0" >
+                    <label class="form-label" for="contactEmail">
+                        {{ form_label(form.email) }}
+                    </label>
+                        {{ form_widget(form.email) }}
+                </div>
+
+                <div class="form-group col-12" >
+                    <label class="form-label" for="contactMessage">
+                        {{ form_label(form.message) }}
+                    </label>
+                        {{ form_widget(form.message) }}
+                </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</section>
+{% endblock %}

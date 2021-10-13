@@ -37,3 +37,10 @@ symfony console doctrine:fixtures:load
 ```bash 
 php bin/unit --testdox
 ```
+### Envoi des mails de contacts
+
+Les mails de contact sont stockés en BDD pour permettre au patissier de les envoyer par mail. Il faut mettre en place un cron sur :
+
+```bash 
+symfony console app:send-contact
+```
