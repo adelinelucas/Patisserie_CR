@@ -13,7 +13,7 @@ class ContactService
     private $manager;
     private $flash;
 
-    public function __construct(EntityManagerInterface $manager, FlashBagInterface $flash )
+    public function __construct(EntityManagerInterface $manager, FlashBagInterface $flash)
     {
         $this->manager = $manager;
         $this->flash = $flash;
@@ -26,8 +26,7 @@ class ContactService
         
         $this->manager->persist($contact);
         $this->manager->flush();
-        $this->flash->add('success', 'Nous vous remercions pour l\'envoi de votre message.');
-        
+        $this->flash->add('success', 'Nous vous remercions pour l\'envoi de votre message.'); 
     }
 
     public function isSend(Contact $contact): void
@@ -35,6 +34,6 @@ class ContactService
         $contact->setIsSend(true);
         
         $this->manager->persist($contact);
-        $this->manager->flush();        
+        $this->manager->flush();
     }
 }
