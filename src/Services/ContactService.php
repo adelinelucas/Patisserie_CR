@@ -26,7 +26,7 @@ class ContactService
         
         $this->manager->persist($contact);
         $this->manager->flush();
-        $this->flash->add('success', 'Nous vous remercions pour l\'envoi de votre message.'); 
+        $this->flash->add('success', 'Nous vous remercions pour l\'envoi de votre message.');
     }
 
     public function isSend(Contact $contact): void
