@@ -41,5 +41,5 @@ class PatisserieController extends AbstractController
         return $this->render('patisserie/details.html.twig', [
             'patisserie' => $patisserie
         ]);
-    }                            
+    }
 }
