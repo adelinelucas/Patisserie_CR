@@ -41,7 +41,6 @@ phpunit:
     stage: Tests
     services: 
         - name: mysql:5.7
-            alias: mysql
     variables:
         MSQL_ROOT_PASSWORD: pass_test
         MYSQL_DATABASE: myapptest
@@ -62,4 +61,3 @@ phpunit:
     script: 
         - php bin/phpunit
     allow_failure: false
-
