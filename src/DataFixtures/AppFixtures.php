@@ -12,6 +12,9 @@ use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+/**
+ * CodeCoverageIgnore
+ */
 class AppFixtures extends Fixture
 {
     private $encoder;
@@ -99,31 +102,31 @@ class AppFixtures extends Fixture
             }
         }
 
-            //Création d'une catégorie pour les tests
-            $categorie = new Categorie();
+        //Création d'une catégorie pour les tests
+        $categorie = new Categorie();
 
-            $categorie->setNom('categorie test')
-                ->setDescription($faker->words(10, true))
-                ->setSlug('categorie-test');
-    
-            $manager->persist($categorie);
+        $categorie->setNom('categorie test')
+            ->setDescription($faker->words(10, true))
+            ->setSlug('categorie-test');
 
-            //Création d'une catégorie pour les tests
-            $patisserie = new Patisserie();
+        $manager->persist($categorie);
 
-            $patisserie->setNom(('peinture test'))
-                ->setCollection(('collection-test'))
-                ->setPrix(($faker->randomFloat(2, 100, 999)))
-                ->setCreatedAt(($faker->dateTimeBetween('-6 month', 'now')))
-                ->setDescription($faker->text())
-                ->setPortfolio($faker->randomElement([true,false]))
-                ->setSlug('peinture-test')
-                ->setFile('/img/placeholder.jpg')
-                ->setPortionPersonne(($faker->words(3, true)))
-                ->addCategorie($categorie)
-                ->setUser($user);
-            
-            $manager->persist($patisserie);
+        //Création d'une patisserie pour les tests
+        $patisserie = new Patisserie();
+
+        $patisserie->setNom(('peinture test'))
+            ->setCollection(('collection-test'))
+            ->setPrix(($faker->randomFloat(2, 100, 999)))
+            ->setCreatedAt(($faker->dateTimeBetween('-6 month', 'now')))
+            ->setDescription($faker->text())
+            ->setPortfolio($faker->randomElement([true,false]))
+            ->setSlug('peinture-test')
+            ->setFile('/img/placeholder.jpg')
+            ->setPortionPersonne(($faker->words(3, true)))
+            ->addCategorie($categorie)
+            ->setUser($user);
+        
+        $manager->persist($patisserie);
 
         $manager->flush();
     }
