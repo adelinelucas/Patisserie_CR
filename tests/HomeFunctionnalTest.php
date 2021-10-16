@@ -12,6 +12,6 @@ class HomeFunctionnalTest extends PantherTestCase
         $crawler = $client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Patisserie Claire et Romain');
+        $this->assertSelectorTextContains('h2', 'Patisserie Claire et Romain');
     }
 }
