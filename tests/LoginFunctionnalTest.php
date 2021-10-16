@@ -14,24 +14,24 @@ class LoginFunctionnalTest extends WebTestCase
         $this->assertResponseIsSuccessful();
     }
 
-    public function testVisitingWhileLoggedIn()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/login');
+    // public function testVisitingWhileLoggedIn()
+    // {
+    //     $client = static::createClient();
+    //     $crawler = $client->request('GET', '/login');
 
-        $buttonCrawlerNode = $crawler->selectButton('Se connecter');
-        $form = $buttonCrawlerNode->form();
+    //     $buttonCrawlerNode = $crawler->selectButton('Se connecter');
+    //     $form = $buttonCrawlerNode->form();
 
-        $form = $buttonCrawlerNode->form([
-            'email' => 'user@test.com',
-            'password'  => 'password',
-        ]);
+    //     $form = $buttonCrawlerNode->form([
+    //         'email' => 'user@test.com',
+    //         'password'  => 'password',
+    //     ]);
 
-        $client->submit($form);
+    //     $client->submit($form);
 
-        $crawler = $client->request('GET', '/login');
+    //     $crawler = $client->request('GET', '/login');
 
-        $this->assertResponseIsSuccessful();
-        // $this->assertSelectorTextContains('div', 'Your are logged in as user@test.com');
-    }
+    //     $this->assertResponseIsSuccessful();
+    //     $this->assertSelectorTextContains('div', 'Your are logged in as user@test.com');
+    // }
 }
