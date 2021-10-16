@@ -37,7 +37,7 @@ twig-lint:
     allow_failure: true
 
 phpunit:
-    image: php:7.4.apache
+    image: php:7.4-apache
     stage: Tests
     services: 
         - name: mysql:5.7
