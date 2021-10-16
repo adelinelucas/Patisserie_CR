@@ -3,6 +3,7 @@
 namespace App\Tests;
 
 use App\Entity\Categorie;
+use App\Entity\Patisserie;
 use PHPUnit\Framework\TestCase;
 
 class CategorieUnitTest extends TestCase
@@ -40,6 +41,21 @@ class CategorieUnitTest extends TestCase
         $this->assertEmpty($categorie->getNom());
         $this->assertEmpty($categorie->getDescription());
         $this->assertEmpty($categorie->getSlug());
+        $this->assertEmpty($categorie->getId());
+    }
+
+    public function testAddGetRemovePatisserie() 
+    {
+        $categorie = new Categorie();
+        $patisserie = new Patisserie();
+
+        $this->assertEmpty($categorie->getPatisseries());
+
+        $categorie->addPatisseries($patisserie);
+        $this->assertContains($patisserie, $categorie->getPatisseries());
+
+        $categorie->removePatisseries($patisserie);
+        $this->assertEmpty($categorie->getPatisseries());
     }
 }
 
