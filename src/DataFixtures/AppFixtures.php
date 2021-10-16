@@ -114,13 +114,13 @@ class AppFixtures extends Fixture
         //Création d'une patisserie pour les tests
         $patisserie = new Patisserie();
 
-        $patisserie->setNom(('peinture test'))
+        $patisserie->setNom(('patisserie test'))
             ->setCollection(('collection-test'))
             ->setPrix(($faker->randomFloat(2, 100, 999)))
             ->setCreatedAt(($faker->dateTimeBetween('-6 month', 'now')))
             ->setDescription($faker->text())
             ->setPortfolio($faker->randomElement([true,false]))
-            ->setSlug('peinture-test')
+            ->setSlug('patisserie-test')
             ->setFile('/img/placeholder.jpg')
             ->setPortionPersonne(($faker->words(3, true)))
             ->addCategorie($categorie)
