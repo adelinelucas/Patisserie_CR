@@ -8,11 +8,11 @@
         <div class="col-md-4 mt-4">
 
         {% for categorie in categories %}
-            {% set img = categorie.patisseries|first %}
+            {% set patisserie = categorie.patisseries|first %}
             <div class="card profile-card-5">
                 <div class="card-img-block">
                     <a href="{{ path('portfolio_categorie', {'slug': categorie.slug}) }}">
-                    <img class="card-img-top" src="{{img.file}}" alt="{{ categorie.nom }} Patisserie Claire et Romain">
+                    <img class="card-img-top" src="{{ vich_uploader_asset(patisserie, 'imageFile') }}" alt="{{ categorie.nom }} Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
                     <h5 class="card-title">{{ categorie.nom }}</h5>

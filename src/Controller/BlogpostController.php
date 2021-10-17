@@ -20,7 +20,7 @@ class BlogpostController extends AbstractController
         BlogpostRepository $blogpostRepository,
         PaginatorInterface $paginator
     ): Response {
-        $data = $blogpostRepository->findAll();
+        $data = $blogpostRepository->findBy([], ['id' => 'DESC']);
 
         $actualites = $paginator->paginate(
             $data,

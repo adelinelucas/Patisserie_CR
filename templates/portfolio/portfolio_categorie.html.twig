@@ -21,7 +21,7 @@
         {% for patisserie in patisseries %}
             <div class="card profile-card-5">
                 <div class="card-img-block">
-                    <img class="card-img-top" src="{{patisserie.file}}" alt="{{ patisserie.nom }} Patisserie Claire et Romain">
+                    <img class="card-img-top" src="{{ vich_uploader_asset(patisserie, 'imageFile') }}" alt="{{ patisserie.nom }} Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
                     <h5 class="card-title">{{ patisserie.nom }}</h5>

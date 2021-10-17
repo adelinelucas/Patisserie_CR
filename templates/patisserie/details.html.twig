@@ -8,12 +8,12 @@
         <div class="col-md-4 mt-4">
             <div class="card profile-card-5">
                 <div class="card-img-block">
-                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPcxM1G69ZMd9PHlfdjl0Tapo_9LvlpyKRalYrP9OYPrxwwTKKhRTZkCt3TWBtLlsYbyE&usqp=CAU" alt="{{ patisserie.nom }} de la Patisserie Claire et Romain">
+                    <img class="card-img-top" src="{{ vich_uploader_asset(patisserie, 'imageFile') }} " alt="{{ patisserie.nom }} de la Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
                     <h5 class="card-title">{{ patisserie.nom }}</h5>
                     <h5 class="card-title">{{ patisserie.collection }}</h5>
-                    <p class="card-text">{{ patisserie.description|u.truncate(200,'...', false) }}</p>      
+                    <p class="card-text">{{ patisserie.description }}</p>      
                 </div>
             </div> 
 
