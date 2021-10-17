@@ -11564,7 +11564,6 @@ section {
 section.cta {
   position: relative;
   padding: 15rem 0;
-  background-image: url("../../../public/img/banniere.jpg");
   background-position: center;
   background-size: cover;
 }
