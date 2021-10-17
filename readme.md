@@ -44,3 +44,5 @@ Les mails de contact sont stockés en BDD pour permettre au patissier de les env
 ```bash 
 symfony console app:send-contact
 ```
+
+symfony php bin/phpunit --coverage-html var/log/test/test-coverage

@@ -12,6 +12,9 @@ use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+/**
+ * CodeCoverageIgnore
+ */
 class AppFixtures extends Fixture
 {
     private $encoder;
@@ -56,7 +59,18 @@ class AppFixtures extends Fixture
             $manager->persist($blogpost);
         }
 
-        // Creation de 5 catégorie
+        //Création d'un blogpost pour les tests
+        $blogpost = new Blogpost();
+
+        $blogpost->setTitre('Blogpost Test')
+        ->setContenu($faker->text(350))
+        ->setSlug('blogpost-test')
+        ->setCreatedAt($faker->dateTimeBetween('-6 month', 'now'))
+        ->setUser($user);
+
+        $manager->persist($blogpost);
+
+        // Creation de 5 catégories
 
         for ($k=0; $k<5; $k++) {
             $categorie = new Categorie();
@@ -87,6 +101,32 @@ class AppFixtures extends Fixture
                 $manager->persist($patisserie);
             }
         }
+
+        //Création d'une catégorie pour les tests
+        $categorie = new Categorie();
+
+        $categorie->setNom('categorie test')
+            ->setDescription($faker->words(10, true))
+            ->setSlug('categorie-test');
+
+        $manager->persist($categorie);
+
+        //Création d'une patisserie pour les tests
+        $patisserie = new Patisserie();
+
+        $patisserie->setNom(('patisserie test'))
+            ->setCollection(('collection-test'))
+            ->setPrix(($faker->randomFloat(2, 100, 999)))
+            ->setCreatedAt(($faker->dateTimeBetween('-6 month', 'now')))
+            ->setDescription($faker->text())
+            ->setPortfolio($faker->randomElement([true,false]))
+            ->setSlug('patisserie-test')
+            ->setFile('/img/placeholder.jpg')
+            ->setPortionPersonne(($faker->words(3, true)))
+            ->addCategorie($categorie)
+            ->setUser($user);
+        
+        $manager->persist($patisserie);
 
         $manager->flush();
     }

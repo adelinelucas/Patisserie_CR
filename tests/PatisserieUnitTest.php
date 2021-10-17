@@ -2,10 +2,11 @@
 
 namespace App\Tests;
 
-use App\Entity\Patisserie;
+use DateTime;
 use App\Entity\User;
 use App\Entity\Categorie;
-use DateTime;
+use App\Entity\Patisserie;
+use App\Entity\Commentaire;
 use PHPUnit\Framework\TestCase;
 
 
@@ -90,5 +91,34 @@ class PatisserieUnitTest extends TestCase
         $this->assertEmpty($patisserie->getPortionPersonne());
         $this->assertEmpty($patisserie->getCategorie());
         $this->assertEmpty($patisserie->getUser());
+        $this->assertEmpty($patisserie->getId());
+    }
+
+    public function testAddGetRemoveCommentaire() 
+    {
+        $patisserie = new Patisserie();
+        $commentaire = new Commentaire();
+
+        $this->assertEmpty($patisserie->getCommentaires());
+
+        $patisserie->addCommentaire($commentaire);
+        $this->assertContains($commentaire, $patisserie->getCommentaires());
+
+        $patisserie->removeCommentaire($commentaire);
+        $this->assertEmpty($patisserie->getCommentaires());
+    }
+
+    public function testAddGetRemoveCategorie() 
+    {
+        $patisserie = new Patisserie();
+        $categorie = new Categorie();
+
+        $this->assertEmpty($patisserie->getCategorie());
+
+        $patisserie->addCategorie($categorie);
+        $this->assertContains($categorie, $patisserie->getCategorie());
+
+        $patisserie->removeCategorie($categorie);
+        $this->assertEmpty($patisserie->getCategorie());
     }
 }

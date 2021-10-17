@@ -64,6 +64,6 @@ class CommentaireUnitTest extends TestCase
         $this->assertEmpty($commentaire->getCreatedAt());
         $this->assertEmpty($commentaire->getPatisserie());
         $this->assertEmpty($commentaire->getBlogpost());
-
+        $this->assertEmpty($commentaire->getId());
     }
 }
