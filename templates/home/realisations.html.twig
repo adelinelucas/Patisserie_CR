@@ -7,7 +7,7 @@
             <div class="card profile-card-5">
                 <div class="card-img-block">
                     <a class="class-img-top" href="{{ path('realisations_details', {'slug': patisserie.slug}) }}">
-                    <img class="card-img-top" src="{{ vich_uploader_asset(patisserie, 'imageFile') }}" alt="{{ patisserie.nom }} de la Patisserie Claire et Romain">
+                    <img class="card-img-top" src="{{ vich_uploader_asset(patisserie, 'imageFile') | imagine_filter('miniature') }}" alt="{{ patisserie.nom }} de la Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
                     <a class="class-img-top" href="{{ path('realisations_details', {'slug': patisserie.slug}) }}">
