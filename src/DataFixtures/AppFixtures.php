@@ -93,7 +93,7 @@ class AppFixtures extends Fixture
                     ->setDescription($faker->text())
                     ->setPortfolio($faker->randomElement([true,false]))
                     ->setSlug($faker->slug())
-                    ->setFile('/img/placeholder.jpg')
+                    ->setFile('placeholder.jpg')
                     ->setPortionPersonne(($faker->words(3, true)))
                     ->addCategorie($categorie)
                     ->setUser($user);
@@ -121,7 +121,7 @@ class AppFixtures extends Fixture
             ->setDescription($faker->text())
             ->setPortfolio($faker->randomElement([true,false]))
             ->setSlug('patisserie-test')
-            ->setFile('/img/placeholder.jpg')
+            ->setFile('placeholder.jpg')
             ->setPortionPersonne(($faker->words(3, true)))
             ->addCategorie($categorie)
             ->setUser($user);
