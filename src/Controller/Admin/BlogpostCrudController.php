@@ -29,6 +29,6 @@ class BlogpostCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setDefaultSort(['createdAt' => 'DESC']);    
+            ->setDefaultSort(['createdAt' => 'DESC']);
     }
 }
