@@ -1,0 +1,25 @@
+<section>
+    {% for com in commentaires %}
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <div class="headings d-flex justify-content-between align-items-center mb-3">
+                    <h5>Commentaires</h5>
+                </div>
+                <div class="card p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="user d-flex flex-row align-items-center"> 
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZyOEOIqQRPWXoZZN-jOfPpudGsx7aMfRzlg&usqp=CAU" width="30" class="user-img rounded-circle mr-2"> 
+                            <span>
+                                <small class="font-weight-bold text-primary">{{ com.auteur }}</small> 
+                                <small class="font-weight-bold">{{ com.contenu }}</small>
+                            </span> 
+                        </div> 
+                        <small>{{ com.createdAt| date('d/m/Y') }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>

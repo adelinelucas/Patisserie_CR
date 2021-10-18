@@ -7,15 +7,15 @@
     <div class="container">
         <div class="col-md-4 mt-4">
 
-        {% for actualite in actualites %}
+        {% for blogpost in blogposts %}
             <div class="card profile-card-5">
                 <div class="card-img-block">
-                    <a class="class-img-top" href="{{ path('actualites_detail', {'slug': actualite.slug}) }}"> 
-                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPcxM1G69ZMd9PHlfdjl0Tapo_9LvlpyKRalYrP9OYPrxwwTKKhRTZkCt3TWBtLlsYbyE&usqp=CAU" alt="{{ actualite.titre }} de la Patisserie Claire et Romain">
+                    <a class="class-img-top" href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}"> 
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPcxM1G69ZMd9PHlfdjl0Tapo_9LvlpyKRalYrP9OYPrxwwTKKhRTZkCt3TWBtLlsYbyE&usqp=CAU" alt="{{ blogpost.titre }} de la Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
-                    <h5 class="card-title">{{ actualite.titre }}</h5>
-                    <p class="card-text">{{ actualite.contenu|u.truncate(200,'...', false) }}</p>      
+                    <h5 class="card-title">{{ blogpost.titre }}</h5>
+                    <p class="card-text">{{ blogpost.contenu|u.truncate(200,'...', false) }}</p>      
                 </div>
             </div> 
         {% endfor %}
@@ -23,8 +23,8 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        {% do actualites.setPageRange(2) %}
-        {{ knp_pagination_render(actualites, 'base/pagination.html.twig') }}
+        {% do blogpost.setPageRange(2) %}
+        {{ knp_pagination_render(blogpost, 'base/pagination.html.twig') }}
     </div>
 </section>
 {% endblock %}

@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Entity\Blogpost;
 use App\Entity\Patisserie;
+use App\Entity\Commentaire;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -33,5 +34,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('A Propos', 'fas fa-cog', User::class);
         yield MenuItem::linkToCrud('Actualités', 'fas fa-newspaper', Blogpost::class);
         yield MenuItem::linkToCrud('Patisseries', 'fas fa-cookie', Patisserie::class);
+        yield MenuItem::linkToCrud('Commentaires', 'fas fa-comment-dots', Commentaire::class);
+
     }
 }
