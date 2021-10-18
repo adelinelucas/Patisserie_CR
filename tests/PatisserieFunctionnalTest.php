@@ -14,11 +14,11 @@ class PatisserieFunctionnalTest extends WebTestCase
         $this->assertResponseIsSuccessful();
     }
 
-    public function testShouldDisplayOnePatisserie()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/realisations/patisserie-test');
+    // public function testShouldDisplayOnePatisserie()
+    // {
+    //     $client = static::createClient();
+    //     $crawler = $client->request('GET', '/realisations/patisserie-test');
 
-        $this->assertResponseIsSuccessful();
-    }
+    //     $this->assertResponseIsSuccessful();
+    // }
 }
