@@ -3,7 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Blogpost;
+use App\Entity\Commentaire;
+use App\Form\CommentaireType;
+use App\Services\CommentaireService;
 use App\Repository\BlogpostRepository;
+use App\Repository\CommentaireRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,23 +26,41 @@ class BlogpostController extends AbstractController
     ): Response {
         $data = $blogpostRepository->findBy([], ['id' => 'DESC']);
 
-        $actualites = $paginator->paginate(
+        $blogposts = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
             6
         );
         return $this->render('blogpost/actualites.html.twig', [
-            'actualites' => $actualites,
+            'blogposts' => $blogposts,
         ]);
     }
 
     /**
      * @Route("/actualites/{slug}", name="actualites_detail")
      */
-    public function details(Blogpost $actualite): Response
-    {
+    public function details(
+        Blogpost $blogpost,
+        Request $request,
+        CommentaireService $commentaireService,
+        CommentaireRepository $commentaireRepository
+    ): Response {
+        $commentaires = $commentaireRepository->findCommentaires($blogpost);
+        $commentaire = new Commentaire();
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $commentaire = $form->getData();
+            $commentaireService->persistCommentaire($commentaire, $blogpost, null);
+
+            return $this->redirectToRoute('actualites_detail', ['slug' => $blogpost->getSlug()]);
+        }
+
         return $this->render('blogpost/details.html.twig', [
-            'actualite' => $actualite
+            'blogpost' => $blogpost,
+            'form' => $form->createView(),
+            'commentaires' => $commentaires,
         ]);
     }
 }

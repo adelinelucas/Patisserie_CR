@@ -8,11 +8,11 @@
         <div class="col-md-4 mt-4">
             <div class="card profile-card-5">
                 <div class="card-img-block">
-                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPcxM1G69ZMd9PHlfdjl0Tapo_9LvlpyKRalYrP9OYPrxwwTKKhRTZkCt3TWBtLlsYbyE&usqp=CAU" alt="{{ actualite.titre }} de la Patisserie Claire et Romain">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPcxM1G69ZMd9PHlfdjl0Tapo_9LvlpyKRalYrP9OYPrxwwTKKhRTZkCt3TWBtLlsYbyE&usqp=CAU" alt="{{ blogpost.titre }} de la Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
-                    <h5 class="card-title">{{ actualite.titre }}</h5>
-                    <p class="card-text">{{ actualite.contenu|u.truncate(200,'...', false) }}</p>      
+                    <h5 class="card-title">{{ blogpost.titre }}</h5>
+                    <p class="card-text">{{ blogpost.contenu|u.truncate(200,'...', false) }}</p>      
                 </div>
             </div> 
 
@@ -22,4 +22,8 @@
         <p class="card-text">{{ patisserie.commentaires }}</p>      
     </div> #}
 </section>
+
+{% include "commentaire/form.html.twig" %}
+{% include "commentaire/commentaires.html.twig" %}
+
 {% endblock %}

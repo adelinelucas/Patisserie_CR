@@ -14,11 +14,11 @@ class BlogpostFunctionnalTest extends WebTestCase
         $this->assertResponseIsSuccessful();
     }
 
-    public function testShouldDisplayOneBlogpost()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/actualites/blogpost-test');
+    // public function testShouldDisplayOneBlogpost()
+    // {
+    //     $client = static::createClient();
+    //     $crawler = $client->request('GET', '/actualites/blogpost-test');
 
-        $this->assertResponseIsSuccessful();
-    }
+    //     $this->assertResponseIsSuccessful();
+    // }
 }

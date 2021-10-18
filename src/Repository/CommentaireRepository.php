@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
+use App\Entity\Blogpost;
+use App\Entity\Patisserie;
 use App\Entity\Commentaire;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Commentaire|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,32 +21,22 @@ class CommentaireRepository extends ServiceEntityRepository
         parent::__construct($registry, Commentaire::class);
     }
 
-    // /**
-    //  * @return Commentaire[] Returns an array of Commentaire objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findCommentaires($value)
     {
+        if ($value instanceof Blogpost) {
+            $object = 'blogpost';
+        }
+
+        if ($value instanceof Patisserie) {
+            $object = 'patisserie';
+        }
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('c.' . $object . ' = :val')
+            ->andWhere('c.isPublished = true')
+            ->setParameter('val', $value->getId())
+            ->orderBy('c.id', 'DESC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Commentaire
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
