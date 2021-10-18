@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
 use App\Entity\Blogpost;
 use App\Entity\Patisserie;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,6 +30,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('A Propos', 'fas fa-cog', User::class);
         yield MenuItem::linkToCrud('Actualités', 'fas fa-newspaper', Blogpost::class);
         yield MenuItem::linkToCrud('Patisseries', 'fas fa-cookie', Patisserie::class);
     }
