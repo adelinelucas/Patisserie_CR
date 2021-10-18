@@ -26,7 +26,7 @@ class BlogpostController extends AbstractController
     ): Response {
         $data = $blogpostRepository->findBy([], ['id' => 'DESC']);
 
-        $actualites = $paginator->paginate(
+        $blogposts = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
             6

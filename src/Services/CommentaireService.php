@@ -24,7 +24,7 @@ class CommentaireService
         Commentaire $commentaire,
         Blogpost $blogpost = null,
         Patisserie $patisserie = null
-        ): void {
+    ): void {
         $commentaire->setIsPublished(false)
                 ->setBlogpost($blogpost)
                 ->setPatisserie($patisserie)
@@ -32,6 +32,9 @@ class CommentaireService
         
         $this->manager->persist($commentaire);
         $this->manager->flush();
-        $this->flash->add('success', 'Nous vous remercions pour l\'envoi de votre commentaire. Il sera publié après validation.');
+        $this->flash->add(
+        'success', 
+        'Nous vous remercions pour l\'envoi de votre commentaire. Il sera publié après validation.'
+        );
     }
 }

@@ -35,6 +35,5 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Actualités', 'fas fa-newspaper', Blogpost::class);
         yield MenuItem::linkToCrud('Patisseries', 'fas fa-cookie', Patisserie::class);
         yield MenuItem::linkToCrud('Commentaires', 'fas fa-comment-dots', Commentaire::class);
-
     }
 }

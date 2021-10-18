@@ -45,7 +45,7 @@ class PatisserieController extends AbstractController
         Request $request,
         CommentaireService $commentaireService,
         CommentaireRepository $commentaireRepository
-        ): Response {
+    ): Response {
 
         $commentaires = $commentaireRepository->findCommentaires($patisserie);
         $commentaire = new Commentaire();
