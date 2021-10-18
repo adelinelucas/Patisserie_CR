@@ -33,8 +33,8 @@ class CommentaireService
         $this->manager->persist($commentaire);
         $this->manager->flush();
         $this->flash->add(
-        'success', 
-        'Nous vous remercions pour l\'envoi de votre commentaire. Il sera publié après validation.'
+            'success',
+            'Nous vous remercions pour l\'envoi de votre commentaire. Il sera publié après validation.'
         );
     }
 }
