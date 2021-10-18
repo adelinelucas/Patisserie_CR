@@ -58,7 +58,7 @@ class SiteMapController extends AbstractController
                 'hostname' => $hostname,
             ]),
             200
-        ); 
+        );
 
         $response->headers->set('Content-type', 'text/xml');
         
