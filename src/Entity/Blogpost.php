@@ -2,13 +2,17 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use App\Repository\BlogpostRepository;
+use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=BlogpostRepository::class)
+ * @Vich\Uploadable
  */
 class Blogpost
 {
@@ -38,6 +42,17 @@ class Blogpost
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $file;
+
+    /**
+     * @Vich\UploadableField(mapping="blogposts_images", fileNameProperty="file")
+     * @var File
+     */
+    private $imageFile;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="blogposts")
@@ -106,6 +121,32 @@ class Blogpost
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+    
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(?string $file): self
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    public function setImageFile(File $file = null)
+    {
+        $this->imageFile = $file;
+
+        if ($file) {
+            $this->createdAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     public function getUser(): ?User

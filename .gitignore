@@ -26,6 +26,7 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 /public/uploads/patisseries/*
+/public/uploads/blogpost/*
 !/public/uploads/patisseries/placeholder.jpg
 ###> liip/imagine-bundle ###
 /public/media/cache/

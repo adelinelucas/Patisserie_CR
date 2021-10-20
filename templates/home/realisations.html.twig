@@ -1,5 +1,5 @@
 <!-- Cards des produits section-->
-<section>
+<section class="homePage">
     <div class="container">
     {% for patisserie in patisseries %}
         <div class="card profile-card-5 col-md-3 mt-3">
@@ -10,7 +10,7 @@
             </div>
             <div class="card-body pt-0">
                 <a class="class-img-top" href="{{ path('realisations_details', {'slug': patisserie.slug}) }}">
-                    <h5 class="card-title">{{ patisserie.nom }}</h5>
+                    <h5 class="card-title">{{ patisserie.nom|capitalize }}</h5>
                     <p class="card-text">{{ patisserie.description|u.truncate(200,'...', false) }}
                     </p>
                 </a>      
@@ -19,7 +19,6 @@
     {% endfor %}
     </div>
 </section>
-<section>
 <!-- Quote aside-->
     <aside class="text-center bg-gradient-primary-to-secondary">
         <div class="container px-5">
@@ -36,4 +35,4 @@
             </div>
         </div>
     </aside>
-</section>
+</div>
