@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Blogpost;
+use App\Entity\Categorie;
 use App\Entity\Patisserie;
 use App\Entity\Commentaire;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,6 +34,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('A Propos', 'fas fa-cog', User::class);
         yield MenuItem::linkToCrud('Actualités', 'fas fa-newspaper', Blogpost::class);
+        yield MenuItem::linkToCrud('Catégories', 'fas fa-tags', Categorie::class);
         yield MenuItem::linkToCrud('Patisseries', 'fas fa-cookie', Patisserie::class);
         yield MenuItem::linkToCrud('Commentaires', 'fas fa-comment-dots', Commentaire::class);
     }

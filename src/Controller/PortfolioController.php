@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Patisserie;
 use App\Entity\Categorie;
 use App\Repository\CategorieRepository;
 use App\Repository\PatisserieRepository;

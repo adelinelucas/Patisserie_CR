@@ -5,13 +5,11 @@
 {% block body %}
 <section>
     <div class="container">
-        <div class="col-md-4 mt-4">
-
         {% for blogpost in blogposts %}
-            <div class="card profile-card-5">
+            <div class="card profile-card-5 col-md-3 mt-3">
                 <div class="card-img-block">
                     <a class="class-img-top" href="{{ path('actualites_detail', {'slug': blogpost.slug}) }}"> 
-                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPcxM1G69ZMd9PHlfdjl0Tapo_9LvlpyKRalYrP9OYPrxwwTKKhRTZkCt3TWBtLlsYbyE&usqp=CAU" alt="{{ blogpost.titre }} de la Patisserie Claire et Romain">
+                    <img class="card-img-top" src="#" alt="{{ blogpost.titre }} de la Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
                     <h5 class="card-title">{{ blogpost.titre }}</h5>

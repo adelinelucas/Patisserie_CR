@@ -20,4 +20,12 @@ class HomeController extends AbstractController
             'blogposts'=> $blogpostRepository->lastFive(),
         ]);
     }
+
+    /**
+     * @Route("/boutiques", name="boutiques")
+     */
+    public function indexBoutique(): Response
+    {
+        return $this->render('boutiques.html.twig');
+    }
 }
