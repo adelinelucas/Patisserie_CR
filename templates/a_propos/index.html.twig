@@ -4,15 +4,18 @@
 
 {% block body %}
 <section>
-    <div>
-        <div>
-            <h2>{{ patissier.prenom }} {{ patissier.nom }}</h2>
+    <div class="containerAPropos">
+        <div class="contenuAPropos">
+            <div>
+                <h2>{{ patissier.prenom }} {{ patissier.nom }}</h2>
+            </div>
+            <div>
+                <p>{{ patissier.aPropos}}</p>
+            </div>
         </div>
         <div>
-            <p>{{ patissier.aPropos}}</p>
-    </div>
+            <img src="/img/patrons2.jpg" alt="Les dirigeants de la Patisserie Claire et Romain">
+        </div>
     <div>
-        <img src="/img/logo.jpg" alt="Les dirigeants de la Patisserie Claire et Romain">
-    </div>
 </section>
 {% endblock %}

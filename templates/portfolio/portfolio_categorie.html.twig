@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Présentation des desserts{% endblock %}
+{% block title %}Détails des produits{% endblock %}
 
 {% block body %}
 <section>
@@ -8,30 +8,26 @@
         {% set img = categorie.patisseries|first %}
         <div>
             <div>
-                <h1>{{ categorie.nom }}</h1>
+                <h1>{{ categorie.nom|capitalize }}</h1>
             </div>
             <div>
-                <p>{{ categorie.description }}</p>
+                <p>{{ categorie.description|capitalize }}</p>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="col-md-4 mt-4">
-
+    <div class="containerPortfolio">
         {% for patisserie in patisseries %}
-            <div class="card profile-card-5">
+            <div class="card profile-card-5 col-md-3 mt-3">
                 <div class="card-img-block">
                     <img class="card-img-top" src="{{ vich_uploader_asset(patisserie, 'imageFile') | imagine_filter('portfolio') }}" alt="{{ patisserie.nom }} Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
-                    <h5 class="card-title">{{ patisserie.nom }}</h5>
-                    <p class="card-text">{{ patisserie.collection }}</p>
-                    <p class="card-text">{{ patisserie.description|u.truncate(200,'...', false) }}</p>      
+                    <h5 class="card-title pinkPolice">{{ patisserie.nom|capitalize}}</h5>
+                    <p class="card-text">{{ patisserie.collection|capitalize }}</p>
+                    <p class="card-text">{{ patisserie.description }}</p>      
                 </div>
             </div> 
         {% endfor %}
-
-        </div>
     </div>
 </section>
 {% endblock %}

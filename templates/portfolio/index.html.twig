@@ -1,27 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PortfolioController!{% endblock %}
+{% block title %}Nos produits{% endblock %}
 
 {% block body %}
 <section>
     <div class="container">
-        <div class="col-md-4 mt-4">
 
         {% for categorie in categories %}
-            {% set patisserie = categorie.patisseries|first %}
-            <div class="card profile-card-5">
-                <div class="card-img-block">
+            {% set patisserie = categorie.patisseries %}
+            <div class=" col-md-2 mt-2 card profile-card-5">
+                <div class="card-body pt-0 pink">
                     <a href="{{ path('portfolio_categorie', {'slug': categorie.slug}) }}">
-                    <img class="card-img-top" src="{{ vich_uploader_asset(patisserie, 'imageFile') | imagine_filter('miniature') }}" alt="{{ categorie.nom }} Patisserie Claire et Romain">
-                </div>
-                <div class="card-body pt-0">
-                    <h5 class="card-title">{{ categorie.nom }}</h5>
-                    <p class="card-text">{{ categorie.description|u.truncate(200,'...', false) }}</p>      
+                        <h5 class="card-title" style="color:white">{{ categorie.nom|capitalize }}</h5>
+                        <p class="card-text" style="color:white">{{ categorie.description|u.truncate(200,'...', false) }}</p>
+                    </a>      
                 </div>
             </div> 
         {% endfor %}
-
-        </div>
     </div>
 </section>
 {% endblock %}

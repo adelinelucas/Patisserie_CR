@@ -1,33 +1,39 @@
 <!-- Cards des produits section-->
 <section>
     <div class="container">
-        <div class="col-md-4 mt-4">
-
-        {% for patisserie in patisseries %}
-            <div class="card profile-card-5">
-                <div class="card-img-block">
-                    <a class="class-img-top" href="{{ path('realisations_details', {'slug': patisserie.slug}) }}">
+    {% for patisserie in patisseries %}
+        <div class="card profile-card-5 col-md-3 mt-3">
+            <div class="card-img-block">
+                <a class="class-img-top" href="{{ path('realisations_details', {'slug': patisserie.slug}) }}">
                     <img class="card-img-top" src="{{ vich_uploader_asset(patisserie, 'imageFile') | imagine_filter('miniature') }}" alt="{{ patisserie.nom }} de la Patisserie Claire et Romain">
-                </div>
-                <div class="card-body pt-0">
-                    <a class="class-img-top" href="{{ path('realisations_details', {'slug': patisserie.slug}) }}">
+                </a>
+            </div>
+            <div class="card-body pt-0">
+                <a class="class-img-top" href="{{ path('realisations_details', {'slug': patisserie.slug}) }}">
                     <h5 class="card-title">{{ patisserie.nom }}</h5>
-                    <p class="card-text">{{ patisserie.description|u.truncate(200,'...', false) }}</p>      
-                </div>
-            </div> 
-        {% endfor %}
-
-        </div>
+                    <p class="card-text">{{ patisserie.description|u.truncate(200,'...', false) }}
+                    </p>
+                </a>      
+            </div>
+        </div> 
+    {% endfor %}
     </div>
 </section>
+<section>
 <!-- Quote aside-->
-<aside class="text-center bg-gradient-primary-to-secondary">
-    <div class="container px-5">
-        <div class="row gx-5 justify-content-center">
-            <div class="col-xl-8">
-                <div class="h2 fs-1 text-white mb-4">Découvrez nos deux magasins situés au coeur de la Bretagne</div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjSFOA68SmyHeN2-ucNf5c5UdjEAPfoe-K0Q&usqp=CAU" alt="..." style="height: 3rem" />
+    <aside class="text-center bg-gradient-primary-to-secondary">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xl-8">
+                    <div class="h2 fs-1 text-white mb-4">Découvrez nos deux magasins situés au coeur de la Bretagne</div>
+                    <div>
+                        <a class="nav-link me-lg-3" href="{{ path('boutiques') }}">
+                            <img src="/img/storeLogo.png" alt="Magasins Patisseries Claire et Romain" style="height: 3rem" />
+                            <img src="/img/storeLogo.png" alt="Magasins Patisseries Claire et Romain" style="height: 3rem" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</aside>
+    </aside>
+</section>
