@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Patisserie Claire et Romain - Realisations{% endblock %}
+{% block title %}Patisserie Claire et Romain - Realisation{% endblock %}
 
 {% block body %}
 <section>
@@ -11,9 +11,9 @@
                     <img class="card-img-top" src="{{ vich_uploader_asset(patisserie, 'imageFile') | imagine_filter('grandeTaille') }} " alt="{{ patisserie.nom }} de la Patisserie Claire et Romain">
                 </div>
                 <div class="card-body pt-0">
-                    <h5 class="card-title">{{ patisserie.nom }}</h5>
-                    <h5 class="card-title">{{ patisserie.collection }}</h5>
-                    <p class="card-text">{{ patisserie.description }}</p>      
+                    <h5 class="card-title">{{ patisserie.nom|capitalize }}</h5>
+                    <h5 class="card-title">{{ patisserie.collection|raw }}</h5>
+                    <p class="card-text">{{ patisserie.description|raw }}</p>      
                 </div>
             </div> 
 

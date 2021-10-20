@@ -52,6 +52,7 @@ class AppFixtures extends Fixture
 
             $blogpost->setTitre($faker->words(3, true))
                 ->setContenu($faker->text())
+                ->setFile('placeholder.jpg')
                 ->setSlug($faker->slug(3))
                 ->setCreatedAt($faker->dateTimeBetween('-6 month', 'now'))
                 ->setUser($user);
@@ -65,6 +66,7 @@ class AppFixtures extends Fixture
         $blogpost->setTitre('Blogpost Test')
         ->setContenu($faker->text(350))
         ->setSlug('blogpost-test')
+        ->setFile('placeholder.jpg')
         ->setCreatedAt($faker->dateTimeBetween('-6 month', 'now'))
         ->setUser($user);
 

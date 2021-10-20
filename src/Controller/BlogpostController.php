@@ -29,7 +29,7 @@ class BlogpostController extends AbstractController
         $blogposts = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
-            6
+            12
         );
         return $this->render('blogpost/actualites.html.twig', [
             'blogposts' => $blogposts,

@@ -1,5 +1,4 @@
-<section class="pt-6 pt-md-8">
-    <div class="container">
+    <div class="containerComment">
         <div class="row justify-content-center">
             <div class="col-12 d-flex justify-content-center">
                 {% for message in app.flashes('success') %}
@@ -10,17 +9,15 @@
             </div>
         </div>
     </div>
-</section>
-
-<section class="pt-6 pt-md-8">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 d-flex justify-content-center">
-                    <h5 class="modal-title">Laisser un commentaire</h5>
+<div>
+    <div class="containerComment">
+        <div class="row justify-content-center col-8">
+            <div class="col-8 d-flex justify-content-center">
+                    <h3 class="modal-title pinkPolice">Laissez nous un commentaire! </h3>
             </div>
-            <div class="modal-body">
+            <div class="modal-body col-8">
                 {{ form(form) }}
             </div>
         </div>
     </div>
-</section>
+</div>
