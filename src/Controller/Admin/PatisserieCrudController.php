@@ -31,7 +31,7 @@ class PatisserieCrudController extends AbstractCrudController
             TextField::new('portionPersonne'),
             BooleanField::new('portfolio'),
             TextField::new('collection'),
-            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex(),
             ImageField::new('file')->setBasePath('/uploads/patisseries/')->onlyOnIndex(),
             SlugField::new('slug')->setTargetFieldName('nom')->hideOnIndex(),
             AssociationField::new('categorie'),
